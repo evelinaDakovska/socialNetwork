@@ -1,0 +1,30 @@
+#site_header {
+  background-color: #81b29a;
+  font-size: 18px;
+  height: 50px;
+}
+
+.navBar {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+}
+
+#site_header > nav > a {
+  color: #3d405b;
+  text-decoration: none;
+  margin-left: 5%;
+}
+
+#site_header > nav > div > a {
+  color: #3d405b;
+  text-decoration: none;
+  padding: 10px;
+}
+
+#site_header > nav > div {
+  margin-right: 3%;
+}

@@ -1,0 +1,9 @@
+.main_content {
+  margin: auto;
+  width: 70%;
+  display: flex;
+  height: 100%;
+  background-color: #e07a5f;
+  justify-content: center;
+  height: calc(100% - 50px);
+}
