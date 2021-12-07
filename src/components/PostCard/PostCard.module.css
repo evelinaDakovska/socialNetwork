@@ -1,24 +1,28 @@
+#cardContainer {
+  width: 80%;
+}
+
 #postCardForm {
-  width: 500px;
   padding: 30px;
+  margin-bottom: 20px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
   background-color: #ffcab1;
   border-radius: 10px;
 }
 
-#cardField{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#cardField {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-#title{
-    font-size: 18px;   
+#title {
+  font-size: 18px;
+  color: #3d405b;
 }
 
-#description{
-width: 100%;
-padding: 7px;
+#description {
+  width: 100%;
+  padding: 7px;
 }
-
-

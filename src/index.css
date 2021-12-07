@@ -6,7 +6,7 @@ html, body, #root, .App{
 
 body {
   margin: 0;
-  font-family: 'Karla', sans-serif;;
+  font-family: 'Karla', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #ECDCB0;

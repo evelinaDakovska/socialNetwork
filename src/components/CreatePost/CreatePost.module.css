@@ -1,50 +1,63 @@
+#createContainer {
+  width: 80%;
+}
+
 #createPostForm {
-  width: 500px;
   padding: 30px;
-  margin: 50px auto;
+  margin: 40px auto;
+  margin-bottom: 20px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
-  background-color: #FFCAB1;
+  background-color: #ffcab1;
   border-radius: 10px;
 }
 
-legend{
+legend {
   font-size: 18px;
+  color: #3d405b;
 }
 
-.field > input {
+.field > input,
+textarea {
   box-sizing: border-box;
   display: block;
   width: 100%;
   padding: 7px;
   border: none;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #968e85;
   background: transparent;
   margin-bottom: 10px;
   height: 45px;
 }
 
-input:focus {
-  outline-style: dotted;
-  outline-color: rgba(0, 0, 0, 0.22);
+input:focus,
+textarea:focus {
+  outline-style: none;
 }
 
 ::placeholder {
   color: #3d405b;
   font-size: 15px;
+  font-family: "Karla", sans-serif;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+  opacity: 0.3;
 }
 
 .buttonSubmit {
   padding: 19px 39px 18px 39px;
-  background: #8CC084;
+  background: #8cc084;
   font-size: 18px;
   width: 100%;
   border: 1px solid #7ba874;
   border-width: 1px 1px 3px;
   margin: 10px 0 10px 0;
-  color: black;
+  color: #3d405b;
   cursor: pointer;
   transition: all 0.5s;
   position: relative;
+  font-family: "Karla", sans-serif;
 }
 
 .buttonSubmit:hover {
@@ -59,5 +72,14 @@ input:focus {
 .buttonSubmit:active {
   box-shadow: 0 5px #3d405b;
   transform: translateY(4px);
-  background: #8CC084;
+  background: #8cc084;
+}
+
+#description {
+  word-break: break-word;
+}
+
+textarea {
+  overflow:hidden;
+  height: 70px;
 }

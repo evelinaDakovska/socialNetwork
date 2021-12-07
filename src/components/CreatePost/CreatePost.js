@@ -7,7 +7,7 @@ const CreatePost = () => {
   };
 
   return (
-    <div>
+    <div id={styles.createContainer}>
       <form
         id={styles.createPostForm}
         method="POST"
@@ -32,7 +32,7 @@ const CreatePost = () => {
             />
           </p>
           <p className={styles.field}>
-            <input
+            <textarea
               type="text"
               name="description"
               id={styles.description}
