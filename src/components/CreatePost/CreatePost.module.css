@@ -3,7 +3,7 @@
   padding: 30px;
   margin: 50px auto;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
-  background-color: #F2CC8F;
+  background-color: #FFCAB1;
   border-radius: 10px;
 }
 
@@ -35,28 +35,29 @@ input:focus {
 
 .buttonSubmit {
   padding: 19px 39px 18px 39px;
-  background: #8abda4;
+  background: #8CC084;
   font-size: 18px;
   width: 100%;
-  border: 1px solid #81b29a;
+  border: 1px solid #7ba874;
   border-width: 1px 1px 3px;
   margin: 10px 0 10px 0;
-  color: #3d405b;
+  color: black;
   cursor: pointer;
   transition: all 0.5s;
   position: relative;
 }
 
 .buttonSubmit:hover {
-  background: #81b29a;
+  background: #7ba874;
 }
 
 .buttonSubmit:focus {
   outline: none;
-  background: #81b29a;
+  background: #7ba874;
 }
 
 .buttonSubmit:active {
   box-shadow: 0 5px #3d405b;
   transform: translateY(4px);
+  background: #8CC084;
 }

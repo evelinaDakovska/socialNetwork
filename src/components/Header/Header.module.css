@@ -1,5 +1,5 @@
 #site_header {
-  background-color: #81b29a;
+  background-color: #968E85;
   font-size: 18px;
   height: 50px;
 }
@@ -14,13 +14,13 @@
 }
 
 #site_header > nav > a {
-  color: #3d405b;
+  color: white;
   text-decoration: none;
   margin-left: 5%;
 }
 
 #site_header > nav > div > a {
-  color: #3d405b;
+  color: white;
   text-decoration: none;
   padding: 10px;
 }
