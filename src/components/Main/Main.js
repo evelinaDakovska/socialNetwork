@@ -7,13 +7,9 @@ import CreatePost from "../CreatePost/CreatePost";
 
 const Main = () => {
   return (
-    <div className={styles.mainContent}>
-      <div id={styles.mainContainer}>
-        <CreatePost />
-        <PostCard />
-        <PostCard />
-        <PostCard />
-      </div>
+    <div id={styles.mainContainer}>
+      <CreatePost />
+      <PostCard />
     </div>
   );
 };
