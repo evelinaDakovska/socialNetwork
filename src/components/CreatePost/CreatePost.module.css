@@ -1,0 +1,62 @@
+#createPostForm {
+  width: 500px;
+  padding: 30px;
+  margin: 50px auto;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
+  background-color: #F2CC8F;
+  border-radius: 10px;
+}
+
+legend{
+  font-size: 18px;
+}
+
+.field > input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 7px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background: transparent;
+  margin-bottom: 10px;
+  height: 45px;
+}
+
+input:focus {
+  outline-style: dotted;
+  outline-color: rgba(0, 0, 0, 0.22);
+}
+
+::placeholder {
+  color: #3d405b;
+  font-size: 15px;
+}
+
+.buttonSubmit {
+  padding: 19px 39px 18px 39px;
+  background: #8abda4;
+  font-size: 18px;
+  width: 100%;
+  border: 1px solid #81b29a;
+  border-width: 1px 1px 3px;
+  margin: 10px 0 10px 0;
+  color: #3d405b;
+  cursor: pointer;
+  transition: all 0.5s;
+  position: relative;
+}
+
+.buttonSubmit:hover {
+  background: #81b29a;
+}
+
+.buttonSubmit:focus {
+  outline: none;
+  background: #81b29a;
+}
+
+.buttonSubmit:active {
+  box-shadow: 0 5px #3d405b;
+  transform: translateY(4px);
+}
