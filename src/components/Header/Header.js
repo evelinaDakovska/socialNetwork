@@ -1,8 +1,8 @@
-import React from "react"; 
+import React from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
-import styles from './Header.module.css';
+import styles from "./Header.module.css";
 
 const Header = () => {
   /*   const { user } = useContext(AuthContext);
@@ -26,6 +26,8 @@ const Header = () => {
     <header id={styles.site_header}>
       <nav className={styles.navBar}>
         <Link to="/home">Home</Link>
+        <Link to="/all-posts">All Posts</Link>
+        <Link to="/create">Create Post</Link>
         {guestNav}
         {/*         {user.email ? userNav : guestNav}
          */}{" "}

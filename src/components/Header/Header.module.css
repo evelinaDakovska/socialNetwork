@@ -9,7 +9,7 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-content: center;
 }
 
@@ -27,4 +27,8 @@
 
 #site_header > nav > div {
   margin-right: 3%;
+}
+
+#guest > a{
+margin-left: 40px;
 }

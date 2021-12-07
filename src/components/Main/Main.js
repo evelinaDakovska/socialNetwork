@@ -8,7 +8,8 @@ import CreatePost from "../CreatePost/CreatePost";
 const Main = () => {
   return (
     <div id={styles.mainContainer}>
-      <CreatePost />
+      <PostCard />
+      <PostCard />
       <PostCard />
     </div>
   );
