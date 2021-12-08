@@ -22,4 +22,5 @@ code {
   height: calc(100% - 50px);
   overflow: auto;
   padding: 0 15% 0 15%;
+  display: flex;
 }

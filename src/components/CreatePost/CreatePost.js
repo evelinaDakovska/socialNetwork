@@ -28,7 +28,7 @@ const CreatePost = () => {
               type="url"
               name="imageURL"
               id={styles.imageURL}
-              placeholder="Image URL"
+              placeholder="Image URL *"
             />
           </p>
           <p className={styles.field}>
