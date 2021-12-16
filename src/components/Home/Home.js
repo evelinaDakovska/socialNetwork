@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Home.module.css";
 
+import Details from "../Details/Details";
+
 const Home = () => {
-  const DetailsHandler = (e) => {
-    e.preventDefault();
-    console.log("Clicked!");
-  };
+  let dialogOpened = false;
 
   const firstBackground =
     "https://images.ctfassets.net/hrltx12pl8hq/61DiwECVps74bWazF88Cy9/2cc9411d050b8ca50530cf97b3e51c96/Image_Cover.jpg?fit=fill&w=480&h=270";
@@ -27,7 +26,7 @@ const Home = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div id={styles.title} onClick={DetailsHandler}>
+          <div id={styles.title} onClick={() => (dialogOpened = true)}>
             Title
           </div>
         </div>
@@ -40,7 +39,7 @@ const Home = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div id={styles.title} onClick={DetailsHandler}>
+          <div id={styles.title} onClick={() => (dialogOpened = true)}>
             Title
           </div>
         </div>
@@ -53,10 +52,12 @@ const Home = () => {
             backgroundRepeat: "no-repeat",
           }}
         >
-          <div id={styles.title} onClick={DetailsHandler}>
+          <div id={styles.title} onClick={() => (dialogOpened = true)}>
             Title
           </div>
         </div>
+        <Details opened={dialogOpened} />
+        {/* SetState!!! */}
       </div>
     </div>
   );

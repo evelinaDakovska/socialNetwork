@@ -1,9 +1,24 @@
 import styles from "./Register.module.css";
 
+import { useContext } from "react";
+import { useNavigate } from "react-router";
+
+import * as authService from "../../services/authService";
+import AuthContext from "../../contexts/AuthContext";
+
 const Register = () => {
+  const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
+
   const registerHandler = (e) => {
     e.preventDefault();
-    console.log("Registered!");
+    let { email, password } = Object.fromEntries(new FormData(e.currentTarget));
+
+    authService.register(email, password).then((authData) => {
+      login(authData);
+
+      navigate("/dashboard");
+    });
   };
 
   return (
@@ -45,7 +60,7 @@ const Register = () => {
           </p>
           <p className={styles.field}>
             <input
-              type="rePassword"
+              type="password  "
               name="rePassword"
               id={styles.rePassword}
               placeholder="Repeat Password *"
@@ -54,7 +69,7 @@ const Register = () => {
           <input
             className={styles.buttonSubmit}
             type="submit"
-            value="register"
+            value="REGISTER"
           />
         </fieldset>
       </form>
