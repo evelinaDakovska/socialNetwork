@@ -24,22 +24,21 @@ const Login = () => {
         navigate("/home");
       })
       .catch((err) => {
-        // TODO: show notification
-        console.log(err);
+        alert(err);
       });
   };
 
   return (
     <div id={styles.loginContainer}>
-      <form id={styles.loginForm} method="POST" onSubmit={loginHandler}>
+      <form id={styles.loginForm} onSubmit={loginHandler} method="POST">
         <fieldset>
           <legend>Login</legend>
           <p className={styles.field}>
             <input
               type="text"
-              name="username"
-              id={styles.username}
-              placeholder="Enter Username"
+              name="email"
+              id={styles.email}
+              placeholder="Enter email"
             />
           </p>
           <p className={styles.field}>

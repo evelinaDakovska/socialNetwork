@@ -1,5 +1,5 @@
 #site_header {
-  background-color: #968E85;
+  background-color: #968e85;
   font-size: 18px;
   height: 50px;
 }
@@ -10,13 +10,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-content: center;
+  align-items: center;
 }
 
-#site_header > nav > a {
+#greetUser, #site_header > nav > a {
   color: white;
   text-decoration: none;
-  margin-left: 5%;
 }
 
 #site_header > nav > div > a {
@@ -25,10 +24,11 @@
   padding: 10px;
 }
 
-#site_header > nav > div {
-  margin-right: 3%;
+.navBar > * {
+  padding: 0 25px;
 }
 
-#guest > a{
-margin-left: 40px;
+#greetUser{
+  color: #3d405b;
+  font-weight: bold;
 }

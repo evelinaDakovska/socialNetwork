@@ -12,12 +12,12 @@ const Register = () => {
 
   const registerHandler = (e) => {
     e.preventDefault();
-    let { email, password } = Object.fromEntries(new FormData(e.currentTarget));
+    let { email, password,firstName, lastName } = Object.fromEntries(new FormData(e.currentTarget));
 
-    authService.register(email, password).then((authData) => {
+    authService.register(email, password, firstName, lastName).then((authData) => {
       login(authData);
 
-      navigate("/dashboard");
+      navigate("/home");
     });
   };
 
@@ -27,18 +27,12 @@ const Register = () => {
         <fieldset>
           <legend>Register</legend>
           <p className={styles.field}>
-            <input
-              type="text"
-              name="username"
-              id={styles.username}
-              placeholder="Enter Username *"
-            />
+            <input type="text" name="email" placeholder="Enter email *" />
           </p>
           <p className={styles.field}>
             <input
               type="firstName"
               name="firstName"
-              id={styles.firstName}
               placeholder="Enter First Name *"
             />
           </p>
@@ -46,7 +40,6 @@ const Register = () => {
             <input
               type="lastName"
               name="lastName"
-              id={styles.lastName}
               placeholder="Enter Last Name *"
             />
           </p>
@@ -54,15 +47,13 @@ const Register = () => {
             <input
               type="password"
               name="password"
-              id={styles.password}
               placeholder="Enter Password *"
             />
           </p>
           <p className={styles.field}>
             <input
-              type="password  "
-              name="rePassword"
-              id={styles.rePassword}
+              type="password"
+              name="Password"
               placeholder="Repeat Password *"
             />
           </p>
