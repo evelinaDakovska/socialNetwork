@@ -3,8 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import AuthContext from "./contexts/AuthContext";
 import useLocalStorage from "./hooks/useLocalStorage";
 
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
+import NavBar from "./components/NavBar/NavBar";
+import AllPosts from "./components/AllPosts/AllPosts";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
 import Logout from "./components/Logout/Logout";
@@ -32,12 +32,12 @@ function App() {
   return (
     <AuthContext.Provider value={{ user, login, logout }}>
       <div className="App">
-        <Header />
+        <NavBar />
         <div className="mainContent">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/all-posts" element={<Main />} />
+            <Route path="/all-posts" element={<AllPosts />} />
             <Route path="/create" element={<CreatePost />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />

@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../../contexts/AuthContext";
-import styles from "./Header.module.css";
+import styles from "./NavBar.module.css";
 
-const Header = () => {
+const NavBar = () => {
   const { user } = useContext(AuthContext);
 
   let guestNav = (
@@ -34,4 +34,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default NavBar;
