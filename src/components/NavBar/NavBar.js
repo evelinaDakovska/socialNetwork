@@ -27,7 +27,6 @@ const NavBar = () => {
     <header id={styles.site_header}>
       <nav className={styles.navBar}>
         <Link to="/home">Home</Link>
-        <Link to="/all-posts">All Posts</Link>
         {user.email ? userNav : guestNav}
       </nav>
     </header>

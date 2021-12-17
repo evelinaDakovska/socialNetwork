@@ -27,7 +27,7 @@ const CreatePost = () => {
         user.accessToken
       )
       .then((result) => {
-        navigate("/all-posts");
+        navigate("/home");
       });
   };
 
