@@ -29,7 +29,7 @@ const Register = () => {
         <fieldset>
           <legend>Register</legend>
           <p className={styles.field}>
-            <input type="text" name="username" placeholder="Enter username *" />
+            <input type="text" name="email" placeholder="Enter email *" />
           </p>
           <p className={styles.field}>
             <input

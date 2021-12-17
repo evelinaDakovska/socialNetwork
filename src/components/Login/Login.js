@@ -13,11 +13,11 @@ const Login = () => {
 
     let formData = new FormData(e.currentTarget);
 
-    let username = formData.get("username");
+    let email = formData.get("email");
     let password = formData.get("password");
 
     authService
-      .login(username, password)
+      .login(email, password)
       .then((authData) => {
         login(authData);
 
@@ -36,9 +36,9 @@ const Login = () => {
           <p className={styles.field}>
             <input
               type="text"
-              name="username"
-              id={styles.username}
-              placeholder="Enter username"
+              name="email"
+              id={styles.email}
+              placeholder="Enter email"
             />
           </p>
           <p className={styles.field}>
