@@ -15,12 +15,14 @@ const CreatePost = () => {
     let postData = new FormData(e.currentTarget);
     let imageURL = postData.get("imageURL");
     let description = postData.get("description");
+    let ownerName = user.fullName;
 
     postService
       .create(
         {
           description,
           imageURL,
+          ownerName
         },
         user.accessToken
       )

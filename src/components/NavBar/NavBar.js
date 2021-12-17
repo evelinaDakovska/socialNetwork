@@ -16,7 +16,7 @@ const NavBar = () => {
 
   let userNav = (
     <>
-      <div id={styles.greetUser}>Welcome, {user.email}</div>
+      <div id={styles.greetUser}>Welcome, {user.fullName}</div>
       <Link to="/create">Create Post</Link>
       <Link to="/profile">Profile</Link>
       <Link to="/logout">Logout</Link>

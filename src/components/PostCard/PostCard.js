@@ -45,7 +45,7 @@ const PostCard = ({ post }) => {
     <div className={styles.cardContainer}>
       <div className={styles.postCardForm}>
         <fieldset className={styles.cardField}>
-          <legend id={styles.ownerName}>{post._ownerId}</legend>
+          <legend id={styles.ownerName}>{post.ownerName}</legend>
           <img
             id={styles.image}
             src={post.imageURL}
