@@ -1,9 +1,9 @@
-#cardContainer {
+.cardContainer {
   margin-top: 40px;
   width: 80%;
 }
 
-#postCardForm {
+.postCardForm {
   padding: 30px;
   /* margin-bottom: 20px;
   margin-top: 20px; */
@@ -12,19 +12,44 @@
   border-radius: 10px;
 }
 
-#cardField {
+.cardField {
   padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-#title {
+#ownerName {
   font-size: 18px;
   color: #3d405b;
 }
 
 #description {
-  width: 100%;
   padding: 7px;
+}
+
+#image {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.button,
+.likes {
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 0 5px;
+  margin: 0 5px;
+}
+
+.button:hover {
+  border-radius: 8px;
+  font-size: 20px;
+  background-color: #8cc084;
 }

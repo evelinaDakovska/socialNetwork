@@ -12,9 +12,11 @@ const Register = () => {
 
   const registerHandler = (e) => {
     e.preventDefault();
-    let { email, password,firstName, lastName } = Object.fromEntries(new FormData(e.currentTarget));
+    let { email, password, fullName } = Object.fromEntries(
+      new FormData(e.currentTarget)
+    );
 
-    authService.register(email, password, firstName, lastName).then((authData) => {
+    authService.register(email, password, fullName).then((authData) => {
       login(authData);
 
       navigate("/home");
@@ -27,20 +29,13 @@ const Register = () => {
         <fieldset>
           <legend>Register</legend>
           <p className={styles.field}>
-            <input type="text" name="email" placeholder="Enter email *" />
+            <input type="text" name="username" placeholder="Enter username *" />
           </p>
           <p className={styles.field}>
             <input
-              type="firstName"
-              name="firstName"
-              placeholder="Enter First Name *"
-            />
-          </p>
-          <p className={styles.field}>
-            <input
-              type="lastName"
-              name="lastName"
-              placeholder="Enter Last Name *"
+              type="fullName"
+              name="fullName"
+              placeholder="Enter Your Name *"
             />
           </p>
           <p className={styles.field}>

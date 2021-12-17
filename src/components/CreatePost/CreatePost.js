@@ -1,9 +1,32 @@
+import { useContext } from "react";
+
 import styles from "./CreatePost.module.css";
+import { useNavigate } from "react-router-dom";
+import * as postService from "../../services/postService";
+import AuthContext from "../../contexts/AuthContext";
 
 const CreatePost = () => {
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const createPostHandler = (e) => {
     e.preventDefault();
-    console.log("Posted!");
+
+    let postData = new FormData(e.currentTarget);
+    let imageURL = postData.get("imageURL");
+    let description = postData.get("description");
+
+    postService
+      .create(
+        {
+          description,
+          imageURL,
+        },
+        user.accessToken
+      )
+      .then((result) => {
+        navigate("/all-posts");
+      });
   };
 
   return (
@@ -15,14 +38,6 @@ const CreatePost = () => {
       >
         <fieldset>
           <legend>Your Post</legend>
-          <p className={styles.field}>
-            <input
-              type="text"
-              name="title"
-              id={styles.title}
-              placeholder="Title *"
-            />
-          </p>
           <p className={styles.field}>
             <input
               type="url"
