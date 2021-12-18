@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { TiHeart } from "react-icons/ti";
+import { TiHeart, TiHeartOutline } from "react-icons/ti";
+import { GrContactInfo } from "react-icons/gr";
 import { MdOutlineEdit, MdDeleteOutline } from "react-icons/md";
 
 import * as postService from "../../services/postService";
@@ -25,10 +26,10 @@ const PostCard = ({ post }) => {
 
   const ownerButtons = (
     <>
-      <Link to="edit" className={styles.button}>
+      <Link to="edit" title="Edit" className={styles.button}>
         <MdOutlineEdit />
       </Link>
-      <a onClick={deleteHandler} className={styles.button}>
+      <a onClick={deleteHandler} title="Delete" className={styles.button}>
         <MdDeleteOutline />
       </a>
     </>
@@ -36,7 +37,7 @@ const PostCard = ({ post }) => {
 
   const userButtons = (
     <a onClick={likeHandler} className={styles.button}>
-      Like
+      <TiHeartOutline title="Like" />
     </a>
   );
 
@@ -46,7 +47,8 @@ const PostCard = ({ post }) => {
         <div className={styles.optionsMenu}>
           {user._id &&
             (user._id === post._ownerId ? ownerButtons : userButtons)}
-          <span className={styles.likes}>
+          <GrContactInfo title="Details" className={styles.button} />
+          <span className={styles.likes} title="Total likes">
             <TiHeart /> {post.likes?.length}
           </span>
         </div>
