@@ -24,7 +24,7 @@
   height: 100%;
 }
 
-.optionsMenu {
+.button {
   transition: 0.5s ease;
   opacity: 0;
   text-align: center;
@@ -34,7 +34,7 @@
 .postCardForm:hover .imageContainer {
   opacity: 0.5;
 }
-.postCardForm:hover .optionsMenu {
+.postCardForm:hover .button {
   opacity: 1;
   background-color: #8cc084;
   border-radius: 10%;

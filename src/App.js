@@ -10,6 +10,7 @@ import Logout from "./components/Logout/Logout";
 import Register from "./components/Register/Register";
 import Profile from "./components/Profile/Profile";
 import CreatePost from "./components/CreatePost/CreatePost";
+import Details from "./components/Details/Details";
 
 const initialAuthState = {
   _id: "",
@@ -37,6 +38,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/create" element={<CreatePost />} />
+            <Route path="/details/:postId" element={<Details />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/profile" element={<Profile />} />

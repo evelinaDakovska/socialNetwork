@@ -15,6 +15,8 @@ export const create = async (postData, token) => {
   return result;
 };
 
+
+
 export const getOne = (postId) => {
   return fetch(`${baseUrl}/posts/${postId}`).then((res) => res.json());
 };
@@ -49,3 +51,47 @@ export const remove = (postId, token) => {
     },
   }).then((res) => res.json());
 };
+
+export const like = (postId, post, token) => {
+  return fetch(`${baseUrl}/posts/${postId}`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+      "X-Authorization": token,
+    },
+    body: JSON.stringify(post),
+  }).then((res) => res.json());
+};
+
+export const edit = (postId, postData) => {
+  request.put(`${baseUrl}/pets/${postId}`, postData);
+};
+
+export const likes = async (userId, postId) => {
+  let response = await fetch(`${baseUrl}/likes`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "X-Authorization": userId,
+    },
+    body: JSON.stringify({ ...postId, likes: [] }),
+  });
+
+  let result = await response.json();
+
+  return result;
+};
+
+export const getPostLikes = async (postId) => {
+  const query = encodeURIComponent(`postId="${postId}"`);
+
+  let response = await fetch(`${baseUrl}/likes?select=userId&where=${query}`);
+
+  let likes = await response.json();
+
+  let result = Object.values(likes);
+
+  return result;
+};
+
+
