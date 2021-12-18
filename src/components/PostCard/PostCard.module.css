@@ -4,41 +4,44 @@
 }
 
 .postCardForm {
+  position: relative;
   padding: 30px;
-  /* margin-bottom: 20px;
-  margin-top: 20px; */
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
-  background-color: #ffcab1;
   border-radius: 10px;
-}
-
-.cardField {
-  padding: 30px;
+  height: 250px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-#ownerName {
-  font-size: 18px;
-  color: #3d405b;
-}
-
-#description {
-  padding: 7px;
-}
-
-#image {
-  width: 100%;
-}
-
-.actions {
-  display: flex;
-  width: 100%;
   justify-content: center;
   align-items: center;
+  opacity: 1;
+  overflow: hidden;
 }
 
+.imageContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.optionsMenu {
+  transition: 0.5s ease;
+  opacity: 0;
+  text-align: center;
+  z-index: 1;
+}
+
+.postCardForm:hover .imageContainer {
+  opacity: 0.5;
+}
+.postCardForm:hover .optionsMenu {
+  opacity: 1;
+  background-color: #8cc084;
+  border-radius: 10%;
+  color: #3d405b;
+  font-size: 16px;
+  padding: 16px 32px;
+}
 .button,
 .likes {
   color: black;
@@ -51,5 +54,5 @@
 .button:hover {
   border-radius: 8px;
   font-size: 20px;
-  background-color: #8cc084;
+  cursor: pointer;
 }

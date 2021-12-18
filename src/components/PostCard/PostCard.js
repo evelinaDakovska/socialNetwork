@@ -21,22 +21,21 @@ const PostCard = ({ post }) => {
 
   const likeHandler = (e) => {
     e.preventDefault();
-
   };
 
   const ownerButtons = (
     <>
-      <Link className={styles.button} to="edit">
+      <Link to="edit" className={styles.button}>
         <MdOutlineEdit />
       </Link>
-      <a className={styles.button} onClick={deleteHandler}>
+      <a onClick={deleteHandler} className={styles.button}>
         <MdDeleteOutline />
       </a>
     </>
   );
 
   const userButtons = (
-    <a className={styles.button} onClick={likeHandler}>
+    <a onClick={likeHandler} className={styles.button}>
       Like
     </a>
   );
@@ -44,24 +43,22 @@ const PostCard = ({ post }) => {
   return (
     <div className={styles.cardContainer}>
       <div className={styles.postCardForm}>
-        <fieldset className={styles.cardField}>
-          <legend id={styles.ownerName}>{post.ownerName}</legend>
-          <img
-            id={styles.image}
-            src={post.imageURL}
-            alt="user generated images"
-          />
-{/*           <p id={styles.description}>{post.description}</p>
- */}          <div className={styles.actions}>
-            {user._id &&
-              (user._id === post._ownerId ? ownerButtons : userButtons)}
-            <div className={styles.likes}>
-              <span className={styles.totalLikes}>
-                <TiHeart /> {post.likes?.length}
-              </span>
-            </div>
-          </div>
-        </fieldset>
+        <div className={styles.optionsMenu}>
+          {user._id &&
+            (user._id === post._ownerId ? ownerButtons : userButtons)}
+          <span className={styles.likes}>
+            <TiHeart /> {post.likes?.length}
+          </span>
+        </div>
+        <div
+          className={styles.imageContainer}
+          style={{
+            backgroundImage: `url(${post.imageURL})`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+          }}
+        ></div>
       </div>
     </div>
   );
