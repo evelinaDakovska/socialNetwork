@@ -1,3 +1,41 @@
-const Profile = () => {};
+import { useState, useEffect } from "react";
+import { useContext } from "react";
+
+import * as postService from "../../services/postService";
+import AuthContext from "../../contexts/AuthContext";
+import styles from "./Profile.module.css";
+import PostCard from "../PostCard/PostCard";
+
+const Profile = () => {
+  const [posts, setPosts] = useState([]);
+  const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    postService.myPosts(user._id).then((postResult) => {
+      setPosts(postResult);
+    });
+  }, []);
+
+  return (
+    <div id={styles.mainContainer}>
+      <h2 id={styles.nameTitle}>{user.fullName}'s Profile</h2>
+      {posts.length > 0 ? (
+        <>
+          {posts.map((x) => (
+            <PostCard key={x._id} post={x} />
+          ))}
+        </>
+      ) : (
+        <div id={styles.cardContainer}>
+          <div className={styles.postCardForm}>
+            <fieldset className={styles.cardField}>
+              <p className="no-posts">You have no posts!</p>
+            </fieldset>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default Profile;

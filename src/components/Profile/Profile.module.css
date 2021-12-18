@@ -1,0 +1,13 @@
+#mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto !important;
+  min-height: 100%;
+  width: 100%;
+}
+
+#nameTitle {
+  margin-bottom: 0;
+}

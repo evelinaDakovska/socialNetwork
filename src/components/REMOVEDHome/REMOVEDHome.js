@@ -1,4 +1,4 @@
-/* import React, { useState } from "react";
+import React, { useState } from "react";
 import styles from "./Home.module.css";
 
 import Details from "../Details/Details";
@@ -64,4 +64,3 @@ const Home = () => {
 };
 
 export default Home;
- */

@@ -51,8 +51,8 @@ const PostCard = ({ post }) => {
             src={post.imageURL}
             alt="user generated images"
           />
-          <p id={styles.description}>{post.description}</p>
-          <div className={styles.actions}>
+{/*           <p id={styles.description}>{post.description}</p>
+ */}          <div className={styles.actions}>
             {user._id &&
               (user._id === post._ownerId ? ownerButtons : userButtons)}
             <div className={styles.likes}>

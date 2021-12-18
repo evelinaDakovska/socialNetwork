@@ -29,6 +29,18 @@ export const getAll = async () => {
   return result;
 };
 
+export const myPosts = async (ownerId) => {
+  let query = encodeURIComponent(`_ownerId="${ownerId}"`);
+
+  let response = await fetch(`${baseUrl}/posts?where=${query}`);
+
+  let posts = await response.json();
+
+  let result = Object.values(posts);
+
+  return result;
+};
+
 export const remove = (postId, token) => {
   return fetch(`${baseUrl}/posts/${postId}`, {
     method: "DELETE",
