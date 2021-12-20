@@ -9,7 +9,7 @@ const PostCard = ({ post }) => {
     <div className={styles.cardContainer}>
       <div className={styles.postCardForm}>
         <Link
-          to={`/user-profile`}
+          to={`/user-profile/${post._ownerId}`}
           title="User Profile"
           className={styles.button}
         >

@@ -1,18 +1,16 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import * as postService from "../../services/postService";
 import styles from "./OtherUserProfile.module.css";
 import PostCard from "../PostCard/PostCard";
-import AuthContext from "../../contexts/AuthContext";
 
 const OtherUserProfile = () => {
   const [posts, setPosts] = useState([]);
-  const { _ownerId,ownerName } = useParams();
-  const { user } = useContext(AuthContext);
+  const { userId } = useParams();
 
   useEffect(() => {
-    postService.userPosts(_ownerId).then((postResult) => {
+    postService.userPosts(userId).then((postResult) => {
       setPosts(postResult);
     });
   }, []);
@@ -21,7 +19,7 @@ const OtherUserProfile = () => {
 
   return (
     <div id={styles.mainContainer}>
-      <h2 id={styles.nameTitle}>{ownerName}'s Profile</h2>
+      <h2 id={styles.nameTitle}>{userId}'s Profile</h2>
       {reversedPosts.length > 0 ? (
         <>
           {reversedPosts.map((x) => (
