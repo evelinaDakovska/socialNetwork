@@ -1,3 +1,4 @@
+import * as request from "./requester";
 const baseUrl = "http://localhost:3030/data";
 
 export const create = async (postData, token) => {
@@ -14,8 +15,6 @@ export const create = async (postData, token) => {
 
   return result;
 };
-
-
 
 export const getOne = (postId) => {
   return fetch(`${baseUrl}/posts/${postId}`).then((res) => res.json());
@@ -52,53 +51,28 @@ export const remove = (postId, token) => {
   }).then((res) => res.json());
 };
 
-export const like = (postId, post, token) => {
+export const edit = (postId, postData) => {
+  let userItem = localStorage.getItem("user");
+  let user = JSON.parse(userItem);
+  user = user.accessToken;
+
   return fetch(`${baseUrl}/posts/${postId}`, {
     method: "PUT",
     headers: {
       "content-type": "application/json",
-      "X-Authorization": token,
+      "X-Authorization": user,
     },
-    body: JSON.stringify(post),
+    body: JSON.stringify(postData),
   }).then((res) => res.json());
 };
 
-export const edit = (postId, postData) => {
-  return fetch(`${baseUrl}/pets/${postId}`, {
-    method: "PUT",
-    headers: {
-      "content-type": "application/json",
-      "X-Authorization": postData,
-    },
-    body: JSON.stringify(postId),
-  }).then((res) => res.json());
-};
+export const like = (userId, postId) =>
+  request.post(`${baseUrl}/likes`, { userId, postId });
 
-export const likes = async (userId, postId) => {
-  let response = await fetch(`${baseUrl}/likes`, {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      "X-Authorization": userId,
-    },
-    body: JSON.stringify({ ...postId, likes: [] }),
-  });
-
-  let result = await response.json();
-
-  return result;
-};
-
-export const getPostLikes = async (postId) => {
+export const getPostLikes = (postId) => {
   const query = encodeURIComponent(`postId="${postId}"`);
 
-  let response = await fetch(`${baseUrl}/likes?select=userId&where=${query}`);
-
-  let likes = await response.json();
-
-  let result = Object.values(likes);
-
-  return result;
+  return request
+    .get(`${baseUrl}/likes?select=userId&where=${query}`)
+    .then((res) => res.map((x) => x.userId));
 };
-
-

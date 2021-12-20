@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { TiHeart, TiHeartFullOutline, TiHeartOutline } from "react-icons/ti";
 
 import styles from "./Details.module.css";
@@ -43,9 +43,9 @@ const Details = () => {
 
   const ownerButtons = (
     <>
-      <button to="edit" title="Edit" className={styles.button}>
+      <Link to={`/edit/${post._id}`} title="Edit" className={styles.button}>
         Edit
-      </button>
+      </Link>
       <button onClick={deleteHandler} title="Delete" className={styles.button}>
         Delete
       </button>
@@ -78,7 +78,7 @@ const Details = () => {
               (user._id === post._ownerId ? ownerButtons : userButtons)}
             <div className={styles.likes}>
               <span className={styles.totalLikes} title="Total likes">
-                <TiHeart /> {post.likes?.length}
+                <TiHeart /> {post.likes?.length || 0}
               </span>
             </div>
           </div>
