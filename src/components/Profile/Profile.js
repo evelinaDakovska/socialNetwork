@@ -11,17 +11,19 @@ const Profile = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    postService.myPosts(user._id).then((postResult) => {
+    postService.userPosts(user._id).then((postResult) => {
       setPosts(postResult);
     });
   }, []);
 
+  let reversedPosts = Object.assign([], posts).reverse();
+
   return (
     <div id={styles.mainContainer}>
       <h2 id={styles.nameTitle}>{user.fullName}'s Profile</h2>
-      {posts.length > 0 ? (
+      {reversedPosts.length > 0 ? (
         <>
-          {posts.map((x) => (
+          {reversedPosts.map((x) => (
             <PostCard key={x._id} post={x} />
           ))}
         </>

@@ -31,7 +31,7 @@ export const getAll = async () => {
   return result;
 };
 
-export const myPosts = async (ownerId) => {
+export const userPosts = async (ownerId) => {
   let query = encodeURIComponent(`_ownerId="${ownerId}"`);
 
   let response = await fetch(`${baseUrl}/posts?where=${query}`);
@@ -64,7 +64,14 @@ export const like = (postId, post, token) => {
 };
 
 export const edit = (postId, postData) => {
-  request.put(`${baseUrl}/pets/${postId}`, postData);
+  return fetch(`${baseUrl}/pets/${postId}`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+      "X-Authorization": postData,
+    },
+    body: JSON.stringify(postId),
+  }).then((res) => res.json());
 };
 
 export const likes = async (userId, postId) => {

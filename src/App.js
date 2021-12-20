@@ -11,6 +11,7 @@ import Register from "./components/Register/Register";
 import Profile from "./components/Profile/Profile";
 import CreatePost from "./components/CreatePost/CreatePost";
 import Details from "./components/Details/Details";
+import OtherUserProfile from "./components/OtherUserProfile/OtherUserProfile";
 
 const initialAuthState = {
   _id: "",
@@ -37,6 +38,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/user-profile" element={<OtherUserProfile />} />
             <Route path="/create" element={<CreatePost />} />
             <Route path="/details/:postId" element={<Details />} />
             <Route path="/login" element={<Login />} />

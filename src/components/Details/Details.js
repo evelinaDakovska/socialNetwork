@@ -1,7 +1,6 @@
 import { useEffect, useContext } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { TiHeart, TiHeartFullOutline, TiHeartOutline } from "react-icons/ti";
-import { MdOutlineEdit, MdDeleteOutline } from "react-icons/md";
 
 import styles from "./Details.module.css";
 import * as postService from "../../services/postService";

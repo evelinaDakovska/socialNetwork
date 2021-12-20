@@ -1,16 +1,19 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { useParams } from "react-router-dom";
 
 import * as postService from "../../services/postService";
-import styles from "./Home.module.css";
+import styles from "./OtherUserProfile.module.css";
 import PostCard from "../PostCard/PostCard";
+import AuthContext from "../../contexts/AuthContext";
 
-const Home = () => {
+const OtherUserProfile = () => {
   const [posts, setPosts] = useState([]);
+  const { _ownerId,ownerName } = useParams();
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    postService.getAll().then((result) => {
-      setPosts(result);
+    postService.userPosts(_ownerId).then((postResult) => {
+      setPosts(postResult);
     });
   }, []);
 
@@ -18,7 +21,8 @@ const Home = () => {
 
   return (
     <div id={styles.mainContainer}>
-      {posts.length > 0 ? (
+      <h2 id={styles.nameTitle}>{ownerName}'s Profile</h2>
+      {reversedPosts.length > 0 ? (
         <>
           {reversedPosts.map((x) => (
             <PostCard key={x._id} post={x} />
@@ -28,7 +32,7 @@ const Home = () => {
         <div id={styles.cardContainer}>
           <div className={styles.postCardForm}>
             <fieldset className={styles.cardField}>
-              <p className="no-posts">No posts in database!</p>
+              <p className="no-posts">You have no posts!</p>
             </fieldset>
           </div>
         </div>
@@ -37,4 +41,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default OtherUserProfile;

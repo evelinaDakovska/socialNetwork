@@ -4,16 +4,25 @@ import { GrContactInfo } from "react-icons/gr";
 import styles from "./PostCard.module.css";
 
 const PostCard = ({ post }) => {
+  let user = post.ownerName.split(" ");
   return (
     <div className={styles.cardContainer}>
       <div className={styles.postCardForm}>
-          <Link
-            to={`/details/${post._id}`}
-            title="Details"
-            className={styles.button}
-          >
-            <GrContactInfo />
-          </Link>
+        <Link
+          to={`/user-profile`}
+          title="User Profile"
+          className={styles.button}
+        >
+          {`${user[0]}'s Profile`}
+        </Link>
+
+        <Link
+          to={`/details/${post._id}`}
+          title="Details"
+          className={styles.button}
+        >
+          <GrContactInfo />
+        </Link>
         <div
           className={styles.imageContainer}
           style={{
