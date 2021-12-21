@@ -36,10 +36,10 @@ const Details = () => {
       return;
     }
 
-  /*   if (post.likes.includes(user._id)) {
+    if (post.likes.includes(user._id)) {
       alert("You cannot like again");
       return;
-    } */
+    }
 
     postService.like(user._id, postId).then(() => {
       setPost((state) => ({ ...state, likes: [...state.likes, user._id] }));
