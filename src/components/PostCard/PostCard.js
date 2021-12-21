@@ -1,20 +1,29 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 import { GrContactInfo } from "react-icons/gr";
 
 import styles from "./PostCard.module.css";
+import AuthContext from "../../contexts/AuthContext";
 
 const PostCard = ({ post }) => {
-  let user = post.ownerName.split(" ");
+  const { user } = useContext(AuthContext);
 
-  let profileButton = (
-    <Link
-      to={`/user-profile/${post._ownerId}`}
-      title="User Profile"
-      className={styles.button}
-    >
-      {`${user[0]}'s Profile`}
-    </Link>
-  );
+  let profileButton;
+  if (post.ownerName) {
+    let postOwner = post.ownerName.split(" ");
+    profileButton = (
+      <Link
+        to={`/user-profile/${post._ownerId}`}
+        title="User Profile"
+        className={styles.button}
+      >
+        {user._id &&
+          (user._id === post._ownerId
+            ? "Your Profile"
+            : `${postOwner[0]}'s Profile`)}
+      </Link>
+    );
+  }
 
   let URL = window.location.pathname;
 

@@ -15,6 +15,7 @@ const CreatePost = () => {
     let postData = new FormData(e.currentTarget);
     let imageURL = postData.get("imageURL");
     let description = postData.get("description");
+    let location = postData.get("location");
     let ownerName = user.fullName;
 
     postService
@@ -22,7 +23,8 @@ const CreatePost = () => {
         {
           description,
           imageURL,
-          ownerName
+          location,
+          ownerName,
         },
         user.accessToken
       )
@@ -51,9 +53,17 @@ const CreatePost = () => {
           <p className={styles.field}>
             <textarea
               type="text"
+              name="location"
+              id={styles.location}
+              placeholder="Location *"
+            />
+          </p>
+          <p className={styles.field}>
+            <textarea
+              type="text"
               name="description"
               id={styles.description}
-              placeholder="Description *"
+              placeholder="Description"
             />
           </p>
           <input

@@ -35,6 +35,14 @@ const Edit = () => {
           <p className={styles.field}>
             <textarea
               type="text"
+              name="location"
+              id={styles.location}
+              defaultValue={post.location}
+            />
+          </p>
+          <p className={styles.field}>
+            <textarea
+              type="text"
               name="description"
               id={styles.description}
               defaultValue={post.description}
