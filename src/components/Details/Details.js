@@ -26,15 +26,20 @@ const Details = () => {
     });
   };
 
+  const editHandler = (e) => {
+    e.preventDefault();
+    navigate(`/edit/${post._id}`);
+  };
+
   const likeHandler = () => {
     if (user._id === post._ownerId) {
       return;
     }
 
-    if (post.likes.includes(user._id)) {
+  /*   if (post.likes.includes(user._id)) {
       alert("You cannot like again");
       return;
-    }
+    } */
 
     postService.like(user._id, postId).then(() => {
       setPost((state) => ({ ...state, likes: [...state.likes, user._id] }));
@@ -43,9 +48,14 @@ const Details = () => {
 
   const ownerButtons = (
     <>
-      <Link to={`/edit/${post._id}`} title="Edit" className={styles.button}>
+      <button
+        onClick={editHandler}
+        to={`/edit/${post._id}`}
+        title="Edit"
+        className={styles.button}
+      >
         Edit
-      </Link>
+      </button>
       <button onClick={deleteHandler} title="Delete" className={styles.button}>
         Delete
       </button>
@@ -72,6 +82,7 @@ const Details = () => {
             src={post.imageURL}
             alt="user generated images"
           />
+          <h4 id={styles.location}>{post.location}</h4>
           <p id={styles.description}>{post.description}</p>
           <div className={styles.actions}>
             {user._id &&
