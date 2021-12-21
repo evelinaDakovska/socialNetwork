@@ -13,14 +13,13 @@ const PostCard = ({ post }) => {
     let postOwner = post.ownerName.split(" ");
     profileButton = (
       <Link
-        to={`/user-profile/${post._ownerId}`}
+        to={`/user-profile/${post._ownerId}/${post.ownerName}`}
         title="User Profile"
         className={styles.button}
       >
-        {user._id &&
-          (user._id === post._ownerId
-            ? "Your Profile"
-            : `${postOwner[0]}'s Profile`)}
+        {user._id === post._ownerId
+          ? "Your Profile"
+          : `${postOwner[0]}'s Profile`}
       </Link>
     );
   }

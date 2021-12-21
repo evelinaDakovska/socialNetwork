@@ -46,3 +46,29 @@ function getToken() {
 export const get = request.bind(null, 'GET');
 export const put = request.bind(null, 'PUT');
 export const post = request.bind(null, 'POST');
+
+/* export const getPostLikes = (postId) => {
+    const query = encodeURIComponent(`postId="${postId}"`);
+  
+    let result = fetch(`${baseUrl}/likes?select=userId&where=${query}`);
+  
+    return result.then((res) => res.map((x) => x.userId));
+  };
+
+  export const like = async (userId, postId) => {
+    let userItem = localStorage.getItem("user");
+    let user = JSON.parse(userItem);
+    user = user.accessToken;
+  
+    let response = fetch(`${baseUrl}/likes`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "X-Authorization": user,
+      },
+      body: JSON.stringify(userId, postId),
+    });
+    let result = await response.json();
+  
+    return Object.values(result);
+  }; */

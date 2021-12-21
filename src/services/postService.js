@@ -66,13 +66,41 @@ export const edit = (postId, postData) => {
   }).then((res) => res.json());
 };
 
-export const like = (userId, postId) =>
-  request.post(`${baseUrl}/likes`, { userId, postId });
+export const like = async (userId, postId) => {
+  let userItem = localStorage.getItem("user");
+  let user = JSON.parse(userItem);
+  user = user.accessToken;
 
-export const getPostLikes = (postId) => {
+  let response = fetch(`${baseUrl}/likes`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+      "X-Authorization": user,
+    },
+    body: JSON.stringify(userId, postId),
+  });
+  let result = await response.json();
+
+  return Object.values(result);
+};
+
+export const getPostLikes = async (postId) => {
   const query = encodeURIComponent(`postId="${postId}"`);
 
-  return request
-    .get(`${baseUrl}/likes?select=userId&where=${query}`)
-    .then((res) => res.map((x) => x.userId));
+  let response = await fetch(`${baseUrl}/likes?select=userId&where=${query}`);
+
+/*   let jsonData = response.json();
+  let result = Object.values(jsonData);
+
+  return result.then((res) => res.map((x) => x.userId)); */
 };
+
+async function responseHandler(res) {
+  let jsonData = await res.json();
+
+  if (res.ok) {
+    return Object.values(jsonData);
+  } else {
+    throw jsonData;
+  }
+}

@@ -39,7 +39,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/user-profile/:userId" element={<OtherUserProfile />} />
+            <Route path="/user-profile/:userId/:name" element={<OtherUserProfile />} />
             <Route path="/create" element={<CreatePost />} />
             <Route path="/details/:postId" element={<Details />} />
             <Route path="/edit/:postId" element={<EditPost />} />
