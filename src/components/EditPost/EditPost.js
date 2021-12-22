@@ -13,6 +13,7 @@ const Edit = () => {
     e.preventDefault();
 
     let postData = Object.fromEntries(new FormData(e.currentTarget));
+    postData.ownerName = post.ownerName;
 
     postService.edit(post._id, postData).then((result) => {
       navigate(`/details/${post._id}`);

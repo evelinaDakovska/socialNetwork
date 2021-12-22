@@ -8,7 +8,7 @@ export const create = async (postData, token) => {
       "content-type": "application/json",
       "X-Authorization": token,
     },
-    body: JSON.stringify({ ...postData, likes: [] }),
+    body: JSON.stringify({ ...postData }),
   });
 
   let result = await response.json();
