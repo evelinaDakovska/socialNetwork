@@ -7,21 +7,28 @@ import AuthContext from "../../contexts/AuthContext";
 
 const PostCard = ({ post }) => {
   const { user } = useContext(AuthContext);
-
   let profileButton;
+
   if (post.ownerName) {
     let postOwner = post.ownerName.split(" ");
-    profileButton = (
+
+    let userProfile = (
+      <Link to={`/profile`} title="Your Profile" className={styles.button}>
+        Your Profile
+      </Link>
+    );
+
+    let otherUserProfile = (
       <Link
         to={`/user-profile/${post._ownerId}/${post.ownerName}`}
         title="User Profile"
         className={styles.button}
       >
-        {user._id === post._ownerId
-          ? "Your Profile"
-          : `${postOwner[0]}'s Profile`}
+        {`${postOwner[0]}'s Profile`}
       </Link>
     );
+
+    profileButton = user._id === post._ownerId ? userProfile : otherUserProfile;
   }
 
   let URL = window.location.pathname;

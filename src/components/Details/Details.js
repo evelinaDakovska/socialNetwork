@@ -1,6 +1,7 @@
-import { useEffect, useContext } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useEffect, useContext, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { TiHeart, TiHeartFullOutline, TiHeartOutline } from "react-icons/ti";
+import { GoLocation } from "react-icons/go";
 
 import styles from "./Details.module.css";
 import * as postService from "../../services/postService";
@@ -12,12 +13,13 @@ const Details = () => {
   const { user } = useContext(AuthContext);
   const { postId } = useParams();
   const [post, setPost] = postState(postId);
+  const [likes, setLikes] = useState([]);
 
   useEffect(() => {
-    postService.getPostLikes(postId).then((likes) => {
-      setPost((state) => ({ ...state, likes }));
+    postService.getPostLikes(postId).then((postResult) => {
+      setLikes(postResult);
     });
-  }, []);
+  });
 
   const deleteHandler = (e) => {
     e.preventDefault();
@@ -36,13 +38,13 @@ const Details = () => {
       return;
     }
 
-    if (post.likes.includes(user._id)) {
+    if (likes?.some((currLike) => currLike.userId === user._id)) {
       alert("You cannot like again");
       return;
     }
 
     postService.like(user._id, postId).then(() => {
-      setPost((state) => ({ ...state, likes: [...state.likes, user._id] }));
+      setLikes((state) => [...state, { userId: user._id, postId }]);
     });
   };
 
@@ -64,7 +66,7 @@ const Details = () => {
 
   const userButtons = (
     <a onClick={likeHandler} className={styles.button}>
-      {post.likes?.includes(user._id) ? (
+      {likes?.some((currLike) => currLike.userId === user._id) ? (
         <TiHeartFullOutline title="Already liked" />
       ) : (
         <TiHeartOutline title="Like" />
@@ -82,14 +84,17 @@ const Details = () => {
             src={post.imageURL}
             alt="user generated images"
           />
-          <h4 id={styles.location}>{post.location}</h4>
+          <h4 id={styles.location}>
+            <GoLocation />
+            {post.location}
+          </h4>
           <p id={styles.description}>{post.description}</p>
           <div className={styles.actions}>
             {user._id &&
               (user._id === post._ownerId ? ownerButtons : userButtons)}
             <div className={styles.likes}>
               <span className={styles.totalLikes} title="Total likes">
-                <TiHeart /> {post.likes?.length || 0}
+                <TiHeart /> {likes?.length || 0}
               </span>
             </div>
           </div>

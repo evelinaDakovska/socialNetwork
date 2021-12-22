@@ -1,4 +1,3 @@
-import * as request from "./requester";
 const baseUrl = "http://localhost:3030/data";
 
 export const create = async (postData, token) => {
@@ -8,7 +7,7 @@ export const create = async (postData, token) => {
       "content-type": "application/json",
       "X-Authorization": token,
     },
-    body: JSON.stringify({ ...postData }),
+    body: JSON.stringify({ ...postData, likes: [] }),
   });
 
   let result = await response.json();
@@ -71,13 +70,13 @@ export const like = async (userId, postId) => {
   let user = JSON.parse(userItem);
   user = user.accessToken;
 
-  let response = fetch(`${baseUrl}/likes`, {
+  let response = await fetch(`${baseUrl}/likes`, {
     method: "POST",
     headers: {
       "content-type": "application/json",
       "X-Authorization": user,
     },
-    body: JSON.stringify(userId, postId),
+    body: JSON.stringify({ userId, postId }),
   });
   let result = await response.json();
 
@@ -86,21 +85,9 @@ export const like = async (userId, postId) => {
 
 export const getPostLikes = async (postId) => {
   const query = encodeURIComponent(`postId="${postId}"`);
-
   let response = await fetch(`${baseUrl}/likes?select=userId&where=${query}`);
-
-/*   let jsonData = response.json();
+  let jsonData = await response.json();
   let result = Object.values(jsonData);
 
-  return result.then((res) => res.map((x) => x.userId)); */
+  return result;
 };
-
-async function responseHandler(res) {
-  let jsonData = await res.json();
-
-  if (res.ok) {
-    return Object.values(jsonData);
-  } else {
-    throw jsonData;
-  }
-}
