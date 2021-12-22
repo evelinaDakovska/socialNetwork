@@ -48,6 +48,7 @@ const CreatePost = () => {
               name="imageURL"
               id={styles.imageURL}
               placeholder="Image URL *"
+              required
             />
           </p>
           <p className={styles.field}>
@@ -56,6 +57,7 @@ const CreatePost = () => {
               name="location"
               id={styles.location}
               placeholder="Location *"
+              required
             />
           </p>
           <p className={styles.field}>

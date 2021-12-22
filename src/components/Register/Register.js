@@ -1,6 +1,6 @@
 import styles from "./Register.module.css";
 
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { useNavigate } from "react-router";
 
 import * as authService from "../../services/authService";
@@ -23,19 +23,48 @@ const Register = () => {
     });
   };
 
+  const textInput = useRef(null);
+
+  const nameValidation = (e) => {
+    e.preventDefault();
+    let fullName = e.target.value;
+    if (fullName.length < 5) {
+      alert("Full name should be at least 5 letters");
+    }
+    if(!/^[a-zA-Z]+$/.test(fullName)){
+      alert("Full name should contain only letters")
+    }
+  };
+
+  const rePassValidation = (e) => {
+    e.preventDefault();
+    let rePassword = e.target.value;
+    let password = textInput.current.value;
+    if (password !== rePassword) {
+      alert("Passwords must match");
+    }
+  };
+
   return (
     <div id={styles.registerContainer}>
       <form id={styles.registerForm} method="POST" onSubmit={registerHandler}>
         <fieldset>
           <legend>Register</legend>
           <p className={styles.field}>
-            <input type="text" name="email" placeholder="Enter email *" />
+            <input
+              type="text"
+              name="email"
+              placeholder="Enter email *"
+              required
+            />
           </p>
           <p className={styles.field}>
             <input
               type="fullName"
               name="fullName"
               placeholder="Enter Your Name *"
+              onBlur={nameValidation}
+              required
             />
           </p>
           <p className={styles.field}>
@@ -43,13 +72,17 @@ const Register = () => {
               type="password"
               name="password"
               placeholder="Enter Password *"
+              ref={textInput}
+              required
             />
           </p>
           <p className={styles.field}>
             <input
               type="password"
-              name="Password"
+              name="rePassword"
               placeholder="Repeat Password *"
+              onBlur={rePassValidation}
+              required
             />
           </p>
           <input

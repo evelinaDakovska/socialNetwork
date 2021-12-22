@@ -31,6 +31,7 @@ const Edit = () => {
               name="imageURL"
               id={styles.imageURL}
               defaultValue={post.imageURL}
+              required
             />
           </p>
           <p className={styles.field}>
@@ -39,6 +40,7 @@ const Edit = () => {
               name="location"
               id={styles.location}
               defaultValue={post.location}
+              required
             />
           </p>
           <p className={styles.field}>

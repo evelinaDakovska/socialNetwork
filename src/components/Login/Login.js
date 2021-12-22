@@ -39,6 +39,7 @@ const Login = () => {
               name="email"
               id={styles.email}
               placeholder="Enter email"
+              required
             />
           </p>
           <p className={styles.field}>
@@ -47,6 +48,7 @@ const Login = () => {
               name="password"
               id={styles.password}
               placeholder="Enter Password"
+              required
             />
           </p>
           <input className={styles.buttonSubmit} type="submit" value="login" />
