@@ -1,10 +1,9 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import * as postService from "../../services/postService";
 import styles from "./OtherUserProfile.module.css";
 import PostCard from "../PostCard/PostCard";
-import AuthContext from "../../contexts/AuthContext";
 
 const OtherUserProfile = () => {
   const [posts, setPosts] = useState([]);

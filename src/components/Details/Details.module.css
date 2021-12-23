@@ -7,7 +7,7 @@
   margin: 40px auto;
   margin-bottom: 20px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.22);
-  background-color: #ffcab1;
+  background-color: #E0CDCC;
   border-radius: 10px;
 }
 
@@ -40,7 +40,7 @@ legend {
 }
 
 .button {
-  background-color: #8cc084;
+  background-color: #FF0;
   border-radius: 10%;
   color: #3d405b;
   font-size: 16px;
@@ -51,4 +51,10 @@ legend {
 
 .totalLikes {
   display: flex;
+}
+
+#description{
+  word-break: break-word;
+  word-wrap: break-word;
+  white-space: normal;
 }
