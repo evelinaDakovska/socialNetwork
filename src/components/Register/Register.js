@@ -31,7 +31,7 @@ const Register = () => {
     if (fullName.length < 5) {
       alert("Full name should be at least 5 letters");
     }
-    if(!/^[a-zA-Z]+$/.test(fullName)){
+    if(!/^[a-zA-Z -]+$/.test(fullName)){
       alert("Full name should contain only letters")
     }
   };

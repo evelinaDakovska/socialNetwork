@@ -36,14 +36,14 @@
 }
 .postCardForm:hover .button {
   opacity: 1;
-  background-color: #8cc084;
+  background-color: #FF0;
   border-radius: 10%;
   font-size: 16px;
   padding: 16px 32px;
 }
 .button,
 .likes {
-  color: black;
+  color: #3d405b;
   text-decoration: none;
   font-size: 18px;
   padding: 0 5px;

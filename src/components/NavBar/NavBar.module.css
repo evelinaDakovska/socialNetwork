@@ -1,5 +1,5 @@
 #site_header {
-  background-color: #968e85;
+  background-color: #E0CDCC;
   font-size: 18px;
   height: 50px;
 }
@@ -13,22 +13,32 @@
   align-items: center;
 }
 
-#greetUser, #site_header > nav > a {
-  color: white;
+#greetUser,
+#site_header > nav > a {
+  color: #3d405b;
   text-decoration: none;
 }
 
 #site_header > nav > div > a {
-  color: white;
+  color: #3d405b;
+  font-weight: bold;
   text-decoration: none;
-  padding: 10px;
-}
+/*   padding: 10px;
+ */}
 
 .navBar > * {
   padding: 0 25px;
 }
 
-#greetUser{
+#greetUser {
   color: #3d405b;
   font-weight: bold;
+}
+.logoContainer {
+  width: 10%;
+  height: 100%;
+}
+.logo {
+  height: 100%;
+  width: 100%;
 }
