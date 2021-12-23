@@ -61,7 +61,7 @@ export const edit = (postId, postData) => {
       "content-type": "application/json",
       "X-Authorization": user,
     },
-    body: JSON.stringify(postData),
+    body: JSON.stringify({ ...postData, likes: [] }),
   }).then((res) => res.json());
 };
 
